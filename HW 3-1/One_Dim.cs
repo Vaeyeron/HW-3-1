@@ -13,6 +13,7 @@ namespace ConsoleApp1
         // _lowerCamelCase
         // UPPER_
         private int[] _array;
+        private int[] _Min_Numbers;
 
         public One_Dim(int length, bool user_Input = false)
         {
@@ -74,7 +75,23 @@ namespace ConsoleApp1
         public void Remove_Elements_More_Than_Abs_100()
         {
             Console.WriteLine("Array after removing elements with abs more than 100");
-            _array = Array.FindAll(_array, x => Math.Abs(x) <= 100);
+            int length_Min = 1;
+            int[] _Min_Numbers = new int[length_Min];
+            int Min_Numbers_Index = 0;
+            foreach (int i in _array)
+            {
+                if (i < 100 & i > -100)
+                {
+                    _Min_Numbers[Min_Numbers_Index] = _array[i];
+                    Min_Numbers_Index++;
+                    length_Min++;
+                }
+            }
+            _array = new int[Min_Numbers_Index];
+            for (int i = 0; i < Min_Numbers_Index; i++)
+            {
+                _array[i] = _Min_Numbers[i];
+            }
             Print_Array();
         }
         public void Remove_Duplicate_Elements()

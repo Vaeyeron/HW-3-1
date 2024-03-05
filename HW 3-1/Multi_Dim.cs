@@ -9,7 +9,6 @@ namespace ConsoleApp1
     class Multi_Dim
     {
         private int[,] _array;
-        private string _type;
 
         public Multi_Dim(int rows, int columns, bool user_Input = false)
         {

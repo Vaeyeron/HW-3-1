@@ -16,7 +16,7 @@ namespace ConsoleApp1
                 int length = int.Parse(Console.ReadLine());
                 One_Dim one_Dim = new One_Dim(length, user_Input);
                 one_Dim.Print_Array();
-                one_Dim.Remove_Elements_More_Than_Abs_100();
+                one_Dim.Remove_Elements_More_Than_Abs_100(length);
                 one_Dim.Remove_Duplicate_Elements();
                 Console.WriteLine("Average: " + one_Dim.Calculate_Average());
                 Console.ReadKey();
