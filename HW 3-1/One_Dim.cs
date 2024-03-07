@@ -13,7 +13,6 @@ namespace ConsoleApp1
         // _lowerCamelCase
         // UPPER_
         private int[] _array;
-        private int[] _Min_Numbers;
 
         public One_Dim(int length, bool user_Input = false)
         {
@@ -72,32 +71,37 @@ namespace ConsoleApp1
             }
             return sum / _array.Length;
         }
-        public void Remove_Elements_More_Than_Abs_100()
+        public void Remove_Elements_More_Than_Abs_100(int length)
         {
             Console.WriteLine("Array after removing elements with abs more than 100");
-            int length_Min = 1;
-            int[] _Min_Numbers = new int[length_Min];
-            int Min_Numbers_Index = 0;
-            foreach (int i in _array)
+            List<int> Array_Less_than_100 = new List<int>();
+            foreach (int element in _array)
             {
-                if (i < 100 & i > -100)
+                if (Math.Abs(element) <= 100)
                 {
-                    _Min_Numbers[Min_Numbers_Index] = _array[i];
-                    Min_Numbers_Index++;
-                    length_Min++;
+                    Array_Less_than_100.Add(element);
                 }
             }
-            _array = new int[Min_Numbers_Index];
-            for (int i = 0; i < Min_Numbers_Index; i++)
-            {
-                _array[i] = _Min_Numbers[i];
-            }
+            _array = Array_Less_than_100.ToArray();
             Print_Array();
         }
         public void Remove_Duplicate_Elements()
         {
             Console.WriteLine("Array after removing duplicated elements");
-            _array = _array.Distinct().ToArray();
+            List<int> No_Duplicates = new List<int>();
+            Array.Sort(_array);
+           
+            for (int i = 0; i < _array.Length; i++)
+            {
+                if (i - 1 > -1 | i + 1 < _array.Length)
+                {
+                    if (_array[i] != _array[i + 1] & _array[i] != _array[i - 1])
+                    {
+                        No_Duplicates.Add(_array[i]);
+                    }
+                }
+            }
+            _array = No_Duplicates.ToArray();
             Print_Array();
         }
     }

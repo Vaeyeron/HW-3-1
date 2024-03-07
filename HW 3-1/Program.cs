@@ -14,6 +14,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Enter length for the array");
                 int length = int.Parse(Console.ReadLine());
+                int[] _Min_Numbers = new int[length - 1];
                 One_Dim one_Dim = new One_Dim(length, user_Input);
                 one_Dim.Print_Array();
                 one_Dim.Remove_Elements_More_Than_Abs_100(length);
